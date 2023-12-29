@@ -48,10 +48,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onRefresh() {
                 getPopularMovies();
+                hideRefreshIndicator();
 
             }
         });
 
+    }
+
+    private void hideRefreshIndicator() {
+        if (swipeRefreshLayout.isRefreshing()) {
+            swipeRefreshLayout.setRefreshing(false);
+        }
     }
 
     private void getPopularMovies() {

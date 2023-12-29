@@ -1,6 +1,7 @@
 package com.example.retrofit_movie_app_ex.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.retrofit_movie_app_ex.MovieDetailedActivity;
 import com.example.retrofit_movie_app_ex.R;
 import com.example.retrofit_movie_app_ex.databinding.MoviesItemListBinding;
 import com.example.retrofit_movie_app_ex.model.Movie;
@@ -58,9 +60,25 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
                 public void onClick(View v) {
 
                     int postion = getAdapterPosition();
+
+                    if (postion != RecyclerView.NO_POSITION) {
+
+                        Movie clickedMovie =movieArrayList.get(postion);
+
+                        Intent intent = new Intent(context, MovieDetailedActivity.class);
+                        intent.putExtra("title",clickedMovie.getTitle());
+                        intent.putExtra("description",clickedMovie.getOverview());
+                        intent.putExtra("voteAverage",clickedMovie.getVoteAverage());
+                        intent.putExtra("posterPath",clickedMovie.getPosterPath());
+                        context.startActivity(intent);
+                    }
+
+
                 }
             });
         }
     }
+
+
 }
 

@@ -29,23 +29,50 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-            <ImageView
-                bind:posterPath="@{movie.posterPath}"
-                android:layout_width="150dp"
-                android:layout_height="250dp"
-                android:id="@+id/moviename"/>
+                <ImageView
+                    bind:posterPath="@{movie.posterPath}"
+                    android:layout_width="150dp"
+                    android:layout_height="250dp"
+                    android:id="@+id/movieName"/>
+                <TextView
+                    android:id="@+id/tvid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{Integer.toString(movie.id)}"/>
+                <TextView
+                    android:id="@+id/tvOriginalLanguage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{movie.originalLanguage}"/>
+                <TextView
+                    android:id="@+id/tvPopularity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{Double.toString(movie.popularity)}"/>
 
-            <TextView
-                android:id="@+id/tvtitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@{movie.title}"/>
+                <TextView
+                    android:id="@+id/tvDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{movie.releaseDate}"/>
+
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{movie.title}"/>
 
                 <TextView
                     android:id="@+id/tvRating"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@{Double.toString(movie.voteAverage)}"/>
+                <TextView
+                    android:id="@+id/Rating"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{Integer.toString(movie.voteCount)}"/>
+
 
 
             </LinearLayout>
